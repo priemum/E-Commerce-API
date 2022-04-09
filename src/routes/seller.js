@@ -6,7 +6,7 @@ const SellerRouter = express.Router()
 
 SellerRouter.post('/seller/register', async(req, res) => {
     try {
-        const seller = new Seller(req.body)
+        const seller = new Seller(req.body)         
         const token = await seller.getAuthtoken()
         await seller.save()
         res.status(201).send({ message: "created seller id", seller, token })
